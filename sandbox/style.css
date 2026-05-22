@@ -1,0 +1,515 @@
+/* Сброс. и базовые -стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    background: linear-gradient(135deg, #ffecf1 0%, #ffeef4 100%);
+    color: #7a2b4a;
+    overflow-x: hidden;
+    flex-direction: column;
+    min-height: 100vh;
+}
+/* при наведении чтобы курсор было не видно */
+body, a, button, input, textarea, select {
+  cursor: none !important;
+}
+
+.container {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    backdrop-filter: blur(20px);
+    background: rgba(255,255,255,0.35);
+    border-radius: 24px;
+}
+
+/* Хедер */
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.logo {
+    width: 250px;
+    max-width: 80vw;
+    border-radius: 50%;
+    border: 3px solid #ff69b4;
+    box-shadow: 0 0 40px 20px rgba(255,105,180,0.5);
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.hero h1 {
+    font-family: 'Nautilus Pompilius', sans-serif;
+    font-size: 3rem;
+    background: linear-gradient(135deg, #d63384 0%, #e83e8c 100%);
+    padding-bottom: 20px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #8a4f6b;
+    margin-bottom: 1.5rem;
+}
+.section-title{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    color: #d63384;
+    font-family: 'Nautilus Pompilius', sans-serif;
+}
+
+/* Сервисы */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: linear-gradient(145deg, #fff 0%, #ffeef6 100%);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255,150,200,0.4);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 50px rgba(216,51,132,0.25);
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.service-card h3 {
+    font-family: 'Nautilus Pompilius', sans-serif;
+    color: #d63384;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.service-card p {
+    color: #8a4f6b;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Why us */
+.why-us {
+    text-align: center;
+    margin: 4rem 0;
+}
+.why-us h2{
+    color: #d63384;;
+    font-family: 'Nautilus Pompilius', sans-serif;
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.feature {
+    background: rgba(255,255,255,0.7);
+    padding: 1rem;
+    border-radius: 15px;
+    border: 1px solid rgba(214,51,132,0.5);
+    box-shadow: 0 6px 15px rgba(216,51,132,0.1);
+    text-align: center;
+}
+
+/* Статистика */
+.stats-section {
+    display: flex;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+
+
+.stat-number {
+    font-family: 'Nautilus Pompilius', sans-serif;
+    font-size: 2.5rem;
+    color: #d63384;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: #8a4f6b;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+/* Футер */
+.footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: rgba(251, 227, 249, 0.726);
+    border-top: 2px solid rgba(255, 150, 200, 0.3);
+}
+
+.footer-logo {
+    font-family: 'Nautilus Pompilius', sans-serif;
+    font-size: 1.8rem;
+    color: #d63384;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.footer-text {
+    max-width: 600px;
+    margin: 0 auto 20px;
+    color: #8a4f6b;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.social-link {
+    display:inline-flex;
+    align-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    transition: all 0.3s ease;
+    font-size: 1.3rem;
+}
+
+.social-link.telegram { background: #0088cc; }
+.social-link.viber { background: #7360f2; }
+.social-link.github { background: #333; }
+
+.social-link:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 15px rgba(214,51,132,0.3);
+}
+
+.footer-copy {
+    font-size: 0.85rem;
+    color: #a87391;
+}
+
+/* Плавающие шарики */
+.floating-balloons, .sketch-balloons {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.sketch-balloon {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.35);
+    box-shadow: 0 0 15px rgba(255,255,255,0.25);
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .features { flex-direction: column; }
+    .stats-section { grid-template-columns: 1fr; }
+    .logo { width: 180px; }
+}
+
+@media (max-width: 480px) {
+    .logo { width: 150px; }
+}
+
+
+
+/* курсор */
+/* Скрываем стандартный курсор */
+body, a, button {
+    cursor: none;
+}
+
+/* Курсор-шарик */
+.cursor-balloon {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 28px;
+    height: 28px;
+    background: radial-gradient(circle at 35% 35%, #ff6fb2, #d63384);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    box-shadow:
+        inset 0 0 6px rgba(255,255,255,0.6),
+        0 0 15px rgba(255,105,180,0.5);
+}
+
+/* Рельефная ниточка */
+.cursor-string {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 25px;
+    background: repeating-linear-gradient(
+        to bottom,
+        #d63384,
+        #d63384 2px,
+        #ff6fb2 2px,
+        #ff6fb2 4px
+    );
+    pointer-events: none;
+    transform: translate(-50%, 0);
+    z-index: 9998;
+}
+
+/* На мобильных устройствах отключаем кастомный курсор */
+@media (max-width: 768px) {
+    .cursor-balloon,
+    .cursor-string {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* 💖 Красивая кнопка "Заказать оформление" */
+#contactBtn {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    padding: 1.2rem 3rem;
+    font-size: 1.3rem;
+    font-family: 'Nautilus Pompilius', sans-serif;
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #ff6fb27b, #d633846e, #ff85c2ae);
+    box-shadow:
+        0 0 25px rgba(255, 105, 180, 0.5),
+        0 0 60px rgba(214, 51, 132, 0.3);
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    letter-spacing: 1px;
+}
+
+/* Блик (анимация света, проходящего через кнопку) */
+#contactBtn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.3) 0%,
+        rgba(255, 255, 255, 0.8) 50%,
+        rgba(255, 255, 255, 0.3) 100%
+    );
+    transform: skewX(-25deg);
+    transition: left 0.6s ease;
+}
+
+/* При наведении */
+#contactBtn:hover::before {
+    left: 125%;
+}
+
+
+#contactBtn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow:
+        0 0 40px rgba(214, 51, 132, 0.8),
+        0 0 80px rgba(255, 105, 180, 0.5);
+}
+
+/* Лёгкое "дыхание" */
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 20px rgba(255,105,180,0.5), 0 0 40px rgba(214,51,132,0.3); }
+    50% { box-shadow: 0 0 40px rgba(255,105,180,0.7), 0 0 90px rgba(214,51,132,0.5); }
+    100% { box-shadow: 0 0 20px rgba(255,105,180,0.5), 0 0 40px rgba(214,51,132,0.3); }
+}
+
+#contactBtn {
+    animation: pulseGlow 3s infinite ease-in-out;
+}
+
+
+
+
+
+
+
+/* окно связи */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none; /* скрыто по умолчанию */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Контент модалки */
+.modal-content {
+    background: linear-gradient(135deg, #ff6fb2, #d63384);
+    padding: 2rem 3rem;
+    line-height: 25px;
+    border-radius: 20px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 0 30px rgba(255,105,180,0.6);
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    font-family: 'Nautilus Pompilius', sans-serif;
+    animation: popupAppear 0.3s ease;
+}
+
+/* Кнопки */
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 1.5rem;
+}
+
+.modal-buttons button {
+    /* padding: 0.8rem 1.5rem; */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-buttons button:hover {
+    background: rgba(255,255,255,0.4);
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* Кнопка закрытия */
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #fff;
+    transition: transform 0.2s ease;
+}
+
+.modal-close:hover {
+    transform: rotate(90deg) scale(1.2);
+}
+
+/* Анимация появления */
+@keyframes popupAppear {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+
+
+
+/* 💌 Волшебное пожелание */
+.wish-popup {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+    background: linear-gradient(135deg, #ff6fb2, #d63384);
+    color: #fff;
+    padding: 16px 28px;
+    border-radius: 30px;
+    font-family: 'Nautilus Pompilius', sans-serif;
+    font-size: 1.1rem;
+    box-shadow: 0 0 30px rgba(255,105,180,0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease;
+    z-index: 9999;
+}
+
+.wish-popup.show {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
+
+/* cердечки */
+.floating-heart {
+    position: fixed;
+    font-size: 20px;
+    animation: flyUp 2.5s ease forwards;
+    pointer-events: none;
+    z-index: 9998;
+}
+
+@keyframes flyUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-120px) scale(1.6);
+    }
+}

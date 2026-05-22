@@ -1,190 +1,180 @@
-/* 🎈 Основные эффекты для сайта — чистая версия */
+'use strict';
 
-/* ===========================
-🌸 1. Побочные шарики
-=========================== */
-function createSideBalloons() {
-    const leftContainer = document.getElementById('leftBalloons');
-    const rightContainer = document.getElementById('rightBalloons');
-    if (!leftContainer || !rightContainer) return;
-
-    const balloonsCount = 10;
-    for (let i = 0; i < balloonsCount; i++) {
-        const balloonLeft = document.createElement('div');
-        balloonLeft.className = 'balloon';
-        balloonLeft.style.top = Math.random() * 100 + 'vh';
-        balloonLeft.style.animationDuration = (Math.random() * 3 + 3) + 's';
-        leftContainer.appendChild(balloonLeft);
-
-        const balloonRight = document.createElement('div');
-        balloonRight.className = 'balloon';
-        balloonRight.style.top = Math.random() * 100 + 'vh';
-        balloonRight.style.animationDuration = (Math.random() * 3 + 3) + 's';
-        rightContainer.appendChild(balloonRight);
-    }
+if (history.scrollRestoration) {
+  history.scrollRestoration = 'manual';
 }
 
+window.addEventListener('pageshow', () => window.scrollTo(0, 0));
 
-/* ===========================
-🎨 2. Шарики внутри контейнера
-=========================== */
-function createSketchBalloons() {
-    const container = document.querySelector('.container');
-    if (!container) return;
-
-    const sketchContainer = document.createElement('div');
-    sketchContainer.className = 'sketch-balloons';
-    container.prepend(sketchContainer);
-
-    const balloonCount = window.innerWidth <= 768 ? 25 : 15;
-
-    for (let i = 0; i < balloonCount; i++) {
-        const balloon = document.createElement('div');
-        balloon.className = 'sketch-balloon';
-
-        // Позиция и размеры
-        balloon.style.left = Math.random() * 95 + '%';
-        balloon.style.top = Math.random() * 85 + '%';
-        const size = Math.random() * 25 + 15;
-        balloon.style.width = size + 'px';
-        balloon.style.height = size + 'px';
-        balloon.style.opacity = Math.random() * 0.4 + 0.4;
-        balloon.style.animationDuration = (Math.random() * 5 + 5) + 's';
-        balloon.style.animationDelay = Math.random() * 4 + 's';
-
-        sketchContainer.appendChild(balloon);
-    }
-}
-
-
-/* ===========================
-   📈 3. Анимация статистики
-=========================== */
-let statsAnimating = false;
-
-function animateStats() {
-    if (statsAnimating) return;
-    statsAnimating = true;
-
-    const stats = document.querySelectorAll('.stat-number');
-    let completed = 0;
-
-    stats.forEach(stat => {
-        const targetText = stat.textContent;
-        const target = parseInt(targetText);
-        let suffix = '';
-        if (targetText.includes('+')) suffix = '+';
-        else if (targetText.includes('%')) suffix = '%';
-        else if (targetText.includes('/')) suffix = '/7';
-
-        let current = 0;
-        const increment = target / 50;
-
-        stat.textContent = '0' + suffix;
-
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                current = target;
-                clearInterval(timer);
-                completed++;
-                if (completed === stats.length) statsAnimating = false;
-            }
-            stat.textContent = Math.floor(current) + suffix;
-        }, 40);
-    });
-}
-
-// Наблюдатель для запуска анимации при появлении блока
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) animateStats();
-    });
-}, { threshold: 0.5 });
-
-const statsSection = document.querySelector('.stats-section');
-if (statsSection) observer.observe(statsSection);
-
-
-/* ===========================
-   🖱️ 4. Кастомный курсор-шарик
-=========================== */
-if (window.innerWidth > 768) {
-    const balloonCursor = document.createElement('div');
-    balloonCursor.classList.add('cursor-balloon');
-    document.body.appendChild(balloonCursor);
-
-    const balloonString = document.createElement('div');
-    balloonString.classList.add('cursor-string');
-    document.body.appendChild(balloonString);
-
-    document.addEventListener('mousemove', e => {
-        const overButton = e.target.closest('a, button, .cta-button');
-
-        if (overButton) {
-            balloonCursor.style.display = 'none';
-            balloonString.style.display = 'none';
-        } else {
-            balloonCursor.style.display = 'block';
-            balloonString.style.display = 'block';
-            balloonCursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
-            balloonString.style.transform = `translate(${e.clientX}px, ${e.clientY + 15}px) translate(-50%, 0)`;
-        }
-    });
-}
-
-
-/* ===========================
-   💌 5. Модальное окно связи
-=========================== */
-const contactBtn = document.getElementById('contactBtn');
-const modal = document.getElementById('contactModal');
-
-if (contactBtn && modal) {
-    const closeBtn = modal.querySelector('.modal-close');
-
-    // Открываем
-    contactBtn.addEventListener('click', e => {
-        e.preventDefault();
-        modal.style.display = 'flex';
-    });
-
-    // Закрываем по кнопке
-    closeBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
-
-    // Закрываем по клику вне окна
-    modal.addEventListener('click', e => {
-        if (e.target === modal) modal.style.display = 'none';
-    });
-
-    // Закрываем по Esc
-    document.addEventListener('keydown', e => {
-        if (e.key === 'Escape') modal.style.display = 'none';
-    });
-
-    // Обработка кнопок выбора
-    modal.querySelectorAll('.modal-buttons button').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const action = btn.getAttribute('data-action');
-            if (action === 'call') {
-                window.location.href = "tel:+37377742921";
-            } else if (action === 'telegram') {
-                window.open("https://t.me/+8axplsiFQ6FiNjUy", "_blank");
-            } else if (action === 'whatsapp') {
-                window.location.href = "https://api.whatsapp.com/send/?phone=37377742921&text&type=phone_number&app_absent=0";
-            }
-            modal.style.display = 'none';
-        });
-    });
-}
-
-
-/* ===========================
-   🚀 6. Запуск после загрузки
-=========================== */
 document.addEventListener('DOMContentLoaded', () => {
-    createSketchBalloons();
-    createSideBalloons();
+  window.scrollTo(0, 0);
+  setTimeout(() => window.scrollTo(0, 0), 100);
+
+  // ---- Custom cursor ----
+  const cursor = document.getElementById('cursor');
+  let mx = 0, my = 0, cx = 0, cy = 0;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX;
+    my = e.clientY;
+  });
+
+  function animateCursor() {
+    cx += (mx - cx) * 0.15;
+    cy += (my - cy) * 0.15;
+    cursor.style.transform = `translate(${cx}px, ${cy}px) translate(-50%, -50%)`;
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
+
+  document.querySelectorAll('a, button, .modal__btn, .hero__btn').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+  });
+
+  // ---- Particles ----
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  const container = document.getElementById('particles');
+  container.appendChild(canvas);
+  let w, h, particles = [];
+
+  function resize() {
+    w = canvas.width = container.offsetWidth;
+    h = canvas.height = container.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  class Particle {
+    constructor() {
+      this.reset();
+      this.y = Math.random() * h;
+    }
+    reset() {
+      this.x = Math.random() * w;
+      this.y = -10;
+      this.size = Math.random() * 3 + 1;
+      this.speedY = Math.random() * 0.8 + 0.2;
+      this.speedX = (Math.random() - 0.5) * 0.3;
+      this.alpha = Math.random() * 0.4 + 0.1;
+      this.hue = Math.random() > 0.5 ? 330 : 300;
+    }
+    update() {
+      this.y += this.speedY;
+      this.x += this.speedX;
+      if (this.y > h + 10) this.reset();
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = `hsla(${this.hue}, 80%, 70%, ${this.alpha})`;
+      ctx.fill();
+    }
+  }
+
+  const count = window.innerWidth <= 768 ? 20 : 60;
+  for (let i = 0; i < count; i++) particles.push(new Particle());
+
+  function drawParticles() {
+    ctx.clearRect(0, 0, w, h);
+    particles.forEach(p => { p.update(); p.draw(); });
+    requestAnimationFrame(drawParticles);
+  }
+  drawParticles();
+
+  // ---- Header scroll ----
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // ---- Stats counter ----
+  const stats = document.querySelectorAll('.stat__num');
+  let statsStarted = false;
+
+  function animateStats() {
+    if (statsStarted) return;
+    statsStarted = true;
+    stats.forEach(el => {
+      const target = parseInt(el.dataset.target);
+      const duration = 2000;
+      const start = performance.now();
+      function update(now) {
+        const t = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = Math.floor(eased * target);
+        if (t < 1) requestAnimationFrame(update);
+        else el.textContent = target;
+      }
+      requestAnimationFrame(update);
+    });
+  }
+
+  // ---- Scroll reveal ----
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+
+      if (entry.target.closest('.about__stats')) {
+        animateStats();
+      }
+
+      if (entry.target.closest('.services__grid')) {
+        const cards = entry.target.closest('.services__grid').querySelectorAll('.service-card');
+        cards.forEach((card, i) => {
+          setTimeout(() => card.classList.add('visible'), i * 80);
+        });
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.about__stats, .services__grid, .service-card').forEach(el => {
+    if (!el.classList.contains('service-card')) revealObserver.observe(el);
+  });
+
+  // ---- Modal ----
+  const contactBtn = document.getElementById('contactBtn');
+  const headerContactBtn = document.getElementById('headerContactBtn');
+  const modal = document.getElementById('contactModal');
+
+  function openModal(e) {
+    if (e) e.preventDefault();
+    modal.classList.add('open');
+  }
+
+  if (contactBtn && modal) {
+    contactBtn.addEventListener('click', openModal);
+  }
+  if (headerContactBtn && modal) {
+    headerContactBtn.addEventListener('click', openModal);
+  }
+
+  if (modal) {
+    const closeBtn = modal.querySelector('.modal__close');
+    const overlay = modal.querySelector('.modal__overlay');
+
+    function closeModal() { modal.classList.remove('open'); }
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', closeModal);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    modal.querySelectorAll('.modal__btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const action = btn.dataset.action;
+        if (action === 'call') {
+          window.location.href = 'tel:+37377742921';
+        } else if (action === 'telegram') {
+          window.open('https://t.me/+8axplsiFQ6FiNjUy', '_blank');
+        } else if (action === 'whatsapp') {
+          window.open('https://api.whatsapp.com/send/?phone=37377742921&text&type=phone_number&app_absent=0', '_blank');
+        }
+        closeModal();
+      });
+    });
+  }
+
 });

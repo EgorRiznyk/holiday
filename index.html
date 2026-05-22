@@ -3,172 +3,208 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#ffecf1">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>Оформление праздников</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.cdnfonts.com/css/nautilus-pompilius-2" rel="stylesheet" />
-
-  <!-- иконки =-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="theme-color" content="#1a0a14">
+  <title>Ylia — Оформление праздников</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=optional" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=2" />
 </head>
 <body>
-  <!-- плавающие элементы -->
-  <div class="floating-hearts" id="heartsContainer"></div>
-  <div class="floating-balloons left" id="leftBalloons"></div>
-  <div class="floating-balloons right" id="rightBalloons"></div>
 
-  <!-- контейнер контента -->
-  <div class="container">
-    <header class="header">
-      <div class="logo-container">
+  <div id="particles"></div>
 
-        <img src="image/image.png" alt="Логотип" class="logo" />
+  <div class="cursor-main" id="cursor"></div>
 
-        <!-- <img src="/image/image.png" alt="Логотип" class="logo" /> -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <img src="image/image.png" alt="Ylia" class="header__logo" />
+      <nav class="header__nav">
+        <a href="#services" class="header__link">Услуги</a>
+        <a href="#about" class="header__link">О нас</a>
+        <a href="#" id="headerContactBtn" class="header__link header__link--btn">Связаться</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero__bg">
+      <div class="hero__glow hero__glow--1"></div>
+      <div class="hero__glow hero__glow--2"></div>
+      <div class="hero__glow hero__glow--3"></div>
+    </div>
+    <div class="hero__inner">
+      <div class="hero__badge">event‑дизайн</div>
+      <h1 class="hero__title">Праздник<br/><span>начинается здесь</span></h1>
+      <p class="hero__subtitle">Создаём незабываемую атмосферу для любого события:<br/>от юбилеев до свадеб, от детских праздников до девичников</p>
+      <a href="#" class="hero__btn" id="contactBtn">Заказать оформление</a>
+      <div class="hero__scroll">Листайте вниз</div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="services__header">
+        <span class="services__tag">Наши услуги</span>
+        <h2 class="services__title">Воплощаем ваши идеи</h2>
+        <p class="services__desc">Каждый праздник — уникален. Мы подбираем декор, который отражает вашу индивидуальность</p>
       </div>
-    </header>
-
-    <section class="hero">
-      <h1>Праздник начинается здесь!</h1>
-      <p>
-        Создаём незабываемую атмосферу для любого события: от юбилеев до свадеб, от детских праздников до девичников.
-      </p>
-      <a href="#" class="cta-button" id="contactBtn">Заказать оформление</a>
-    </section>
-
-    <section class="services-section" id="services">
-      <h2 class="section-title">Наши услуги</h2>
-      <div class="services-grid">
+      <div class="services__grid">
         <div class="service-card">
-          <div class="service-icon">🎉</div>
-          <h3>Юбилеи</h3>
-          <p>Элегантное оформление юбилейных праздников любого масштаба.</p>
+          <div class="service-card__icon">
+            <svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="38" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" opacity=".3"/><path d="M40 18c-6 0-10 4-10 10s4 10 10 10 10-4 10-10-4-10-10-10z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M22 58c0-10 8-18 18-18s18 8 18 18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M40 42l-6 8h12l-6 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="service-card__title">Юбилеи</h3>
+          <p class="service-card__desc">Элегантное оформление юбилейных праздников любого масштаба</p>
         </div>
-
         <div class="service-card">
-          <div class="service-icon">👶</div>
-          <h3>Крестины и годик</h3>
-
-          <p>Нежные и милые декорации для крестин и первого дня рождения.</p>
-
-          <!-- <p>Нежные и милые декорации для крестин и первого года жизни.</p> -->
-
+          <div class="service-card__icon">
+            <svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="38" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" opacity=".3"/><path d="M30 30c0-5.5 4.5-10 10-10s10 4.5 10 10v2c0 5.5-4.5 10-10 10s-10-4.5-10-10v-2z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M18 62c0-8 10-14 22-14s22 6 22 14" stroke="currentColor" stroke-width="2" fill="none"/><path d="M40 56l-4 6h8l-4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="service-card__title">Крестины и годик</h3>
+          <p class="service-card__desc">Нежные и милые декорации для крестин и первого дня рождения</p>
         </div>
-
         <div class="service-card">
-          <div class="service-icon">🎈</div>
-          <h3>Гелевые шарики</h3>
-          <p>Яркие композиции из гелевых шаров для любого события.</p>
+          <div class="service-card__icon">
+            <svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="38" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" opacity=".3"/><circle cx="40" cy="38" r="16" stroke="currentColor" stroke-width="2" fill="none"/><path d="M40 22v-6M40 54v-6M24 38H18M56 38h6M27.5 27.5l-4-4M52.5 52.5l4 4M52.5 27.5l4-4M27.5 52.5l-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M32 38c0 4.4 3.6 8 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="service-card__title">Гелевые шарики</h3>
+          <p class="service-card__desc">Яркие композиции из гелевых шаров для любого события</p>
         </div>
-
         <div class="service-card">
-          <div class="service-icon">🏥</div>
-          <h3>Выписка из роддома</h3>
-          <p>Тёплое оформление для встречи новорождённого дома.</p>
+          <div class="service-card__icon">
+            <svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="38" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" opacity=".3"/><path d="M50 24H30a4 4 0 00-4 4v20a4 4 0 004 4h20a4 4 0 004-4V28a4 4 0 00-4-4z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M26 34h28M26 42h28" stroke="currentColor" stroke-width="1.5" opacity=".5"/><path d="M46 24v24M34 24v24" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2" opacity=".3"/><path d="M18 54h44" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M32 56l-2 4M40 56l-2 4M48 56l-2 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="service-card__title">Выписка из роддома</h3>
+          <p class="service-card__desc">Тёплое оформление для встречи новорождённого дома</p>
         </div>
-        
         <div class="service-card">
-          <div class="service-icon">💃</div>
-          <h3>Девичники</h3>
-          <p>Стильное и весёлое оформление для девичников и вечеринок.</p>
+          <div class="service-card__icon">
+            <svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="38" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" opacity=".3"/><path d="M40 18l6 12 13-2-9 10 7 12-13-4-4 14-4-14-13 4 7-12-9-10 13 2 6-12z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M28 58l4-2M52 58l4-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="service-card__title">Девичники</h3>
+          <p class="service-card__desc">Стильное и весёлое оформление для девичников и вечеринок</p>
         </div>
-
         <div class="service-card">
-          <div class="service-icon">🎠</div>
-          <h3>Детские праздники</h3>
-          <p>Яркие и волшебные декорации для дней рождения и детских мероприятий.</p>
+          <div class="service-card__icon">
+            <svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="38" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" opacity=".3"/><path d="M52 26H28a4 4 0 00-4 4v16a4 4 0 004 4h24a4 4 0 004-4V30a4 4 0 00-4-4z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M32 50v8M48 50v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M28 58h24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="40" cy="36" r="3" fill="currentColor" opacity=".5"/><circle cx="32" cy="36" r="2" fill="currentColor" opacity=".4"/><circle cx="48" cy="36" r="2" fill="currentColor" opacity=".4"/></svg>
+          </div>
+          <h3 class="service-card__title">Детские праздники</h3>
+          <p class="service-card__desc">Яркие и волшебные декорации для дней рождения</p>
         </div>
-
         <div class="service-card">
-          <div class="service-icon"><img src="image/gender party.png" alt=""></div>
-          <h3>Gender Party</h3>
-          <p>Красивое оформление для празднования пола ребёнка.</p>
+          <div class="service-card__icon">
+            <svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="38" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" opacity=".3"/><circle cx="32" cy="30" r="8" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="48" cy="30" r="8" stroke="currentColor" stroke-width="2" fill="none"/><path d="M24 58c0-8 7-14 16-14s16 6 16 14" stroke="currentColor" stroke-width="2" fill="none"/><path d="M32 22l-4-6M48 22l4-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".6"/><path d="M40 34v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="40" cy="42" r="2" fill="currentColor" opacity=".5"/></svg>
+          </div>
+          <h3 class="service-card__title">Gender Party</h3>
+          <p class="service-card__desc">Красивое оформление для празднования пола ребёнка</p>
         </div>
-
-        <div class="service-card">
-          <div class="service-icon">💍</div>
-          <h3>Свадьбы</h3>
-          <p>Романтичное оформление свадеб, которое делает момент особенным.</p>
+          <div class="service-card">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="38" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" opacity=".3"/><circle cx="40" cy="30" r="8" stroke="currentColor" stroke-width="2" fill="none"/><path d="M24 58c0-10 7-18 16-18s16 8 16 18" stroke="currentColor" stroke-width="2" fill="none"/><path d="M40 30l-4 8h8l-4 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 22l8 8M62 22l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".5"/></svg>
+          </div>
+          <h3 class="service-card__title">Свадьбы</h3>
+          <p class="service-card__desc">Романтичное оформление свадеб, которое делает момент особенным</p>
         </div>
-
         <div class="service-card">
-          <div class="service-icon">📸</div>
-          <h3>Стильная фотозона</h3>
-          <p>Идеальное место для красивых снимков и памятных моментов.</p>
+          <div class="service-card__icon">
+            <svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="38" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" opacity=".3"/><rect x="22" y="26" width="36" height="28" rx="3" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="40" cy="40" r="5" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M40 35v-3M40 48v-3M29 35l2 2M49 45l2 2M29 45l2-2M49 35l2-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".5"/></svg>
+          </div>
+          <h3 class="service-card__title">Стильная фотозона</h3>
+          <p class="service-card__desc">Идеальное место для красивых снимков и памятных моментов</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="why-us">
-      <h2>Почему выбирают нас?</h2>
-      <div class="features">
-        <div class="feature">💖 Индивидуальный подход к каждому празднику</div>
-        <div class="feature">🎈 Только качественные материалы и декор</div>
-        <div class="feature">📸 Создаём атмосферу, которую хочется фотографировать</div>
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about__grid">
+        <div class="about__info">
+          <span class="about__tag">Почему мы</span>
+          <h2 class="about__title">Создаём атмосферу,<br/>которую хочется<br/>фотографировать</h2>
+          <ul class="about__list">
+            <li>
+              <svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="26" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3" opacity=".3"/><path d="M30 18c-4 0-7 3-7 7s3 7 7 7 7-3 7-7-3-7-7-7z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M18 42c0-6 5-11 12-11s12 5 12 11" stroke="currentColor" stroke-width="2" fill="none"/><path d="M30 32l-3 4h6l-3 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Индивидуальный подход к каждому празднику
+            </li>
+            <li>
+              <svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="26" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3" opacity=".3"/><path d="M30 16l4 8 9-2-6 7 5 8-9-3-3 10-3-10-9 3 5-8-6-7 9 2 4-8z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/></svg>
+              Только качественные материалы и декор
+            </li>
+            <li>
+              <svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="26" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3" opacity=".3"/><rect x="16" y="24" width="28" height="18" rx="3" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="30" cy="33" r="5" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M30 28v-2M30 40v-2M21 30l2 2M37 34l2 2M21 36l2-2M37 32l2-2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity=".5"/><circle cx="44" cy="26" r="3" fill="currentColor" opacity=".6"/></svg>
+              Создаём атмосферу, которую хочется фотографировать
+            </li>
+          </ul>
+        </div>
+        <div class="about__stats">
+          <div class="stat">
+            <span class="stat__num" data-target="2000">0</span>
+            <span class="stat__suffix">+</span>
+            <span class="stat__label">Довольных клиентов</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num" data-target="11">0</span>
+            <span class="stat__suffix">+</span>
+            <span class="stat__label">Лет в работе</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num" data-target="100">0</span>
+            <span class="stat__suffix">%</span>
+            <span class="stat__label">Гарантия качества</span>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="stats-section">
-      <div class="stat-item">
-        <div class="stat-number">2000+</div>
-        <div class="stat-label">Довольных клиентов</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">11+</div>
-        <div class="stat-label">Лет в работе</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">100%</div>
-        <div class="stat-label">Гарантия качества</div>
-      </div>
-    </section>
-  </div>
-
-  <!-- Футер -->
   <footer class="footer">
-    <div class="footer-content">
-      <h3 class="footer-logo">Праздник начинается здесь</h3>
-      <p class="footer-text">
-        Создаём атмосферу радости, уюта и незабываемых эмоций для каждого события 💖
-      </p>
-
-      <div class="footer-socials">
-        <a href="https://t.me/+8axplsiFQ6FiNjUy" target="_blank" class="social-link telegram">
-          <img src="image/teleg.png" alt="telegram" width="70px">
-        </a>
-        <a href="https://wa.me/37377742921" class="social-link viber">
-          <i class=""></i><img src="image/whatsapp.png" alt="whatsapp" width="65px">
-        </a>
-        <a href="https://m.ok.ru/profile/242195581" target="_blank" class="social-link github">
-          <img src="image/odn.png" alt="odnoklassniki" width="50px">
-        </a>
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <h3 class="footer__title">Ylia</h3>
+          <p class="footer__text">Создаём атмосферу радости, уюта и незабываемых эмоций для каждого события</p>
+        </div>
+        <div class="footer__socials">
+          <a href="https://t.me/+8axplsiFQ6FiNjUy" target="_blank" class="footer__social footer__social--tg">
+            <img src="image/teleg.png" alt="Telegram" />
+          </a>
+          <a href="https://wa.me/37377742921" target="_blank" class="footer__social footer__social--wa">
+            <img src="image/whatsapp.png" alt="WhatsApp" />
+          </a>
+          <a href="https://m.ok.ru/profile/242195581" target="_blank" class="footer__social footer__social--ok">
+            <img src="image/odn.png" alt="Одноклассники" />
+          </a>
+        </div>
       </div>
-
-
-      <!-- <p class="footer-copy">© 2025 yulisharpmr. Все права защищены.</p> -->
-      <p class="footer-copy">© 2026 yulisharpmr. Все права защищены.</p>
+      <div class="footer__bottom">
+        <p>© 2026 yulisharpmr. Все права защищены.</p>
+      </div>
     </div>
   </footer>
-<!-- Модальное окно выбораа контактач -->
-<div id="contactModal" class="modal">
-  <div class="modal-content">
-    <h2>Как с нами связаться?</h2>
-    <p>Выберите способ связи:</p>
-    <div class="modal-buttons">
-      <button data-action="call"><img src="image/phone.png" alt="phone" width="50px"></button>
-      <button data-action="telegram"><img src="image/tg.png" alt="tg" width="50px"></button>
-      <button data-action="whatsapp"><img src="image/whatsapp.png" alt="whatsapp" width="50px"></button>
+
+  <div class="modal" id="contactModal">
+    <div class="modal__overlay"></div>
+    <div class="modal__box">
+      <button class="modal__close">&times;</button>
+      <h2 class="modal__title">Как с нами связаться?</h2>
+      <p class="modal__text">Выберите удобный способ связи</p>
+      <div class="modal__buttons">
+        <button data-action="call" class="modal__btn">
+          <img src="image/phone.png" alt="phone" />
+          <span>Позвонить</span>
+        </button>
+        <button data-action="telegram" class="modal__btn">
+          <img src="image/tg.png" alt="Telegram" />
+          <span>Telegram</span>
+        </button>
+        <button data-action="whatsapp" class="modal__btn">
+          <img src="image/whatsapp.png" alt="WhatsApp" />
+          <span>WhatsApp</span>
+        </button>
+      </div>
     </div>
-    <span class="modal-close">&times;</span>
   </div>
-</div>
-
-
-  <!-- Скрипт -->
-
-  <!-- js cкрипт -->
 
   <script src="script.js"></script>
 </body>
